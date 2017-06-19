@@ -65,7 +65,7 @@ offlineNTracks::offlineNTracks( const edm::ParameterSet& iConfig)
    //now do what ever initialization is needed
    consumes<reco::TrackCollection>(trackSource);
    consumes<reco::VertexCollection>(vertexSource);
-   produces<int>();
+   produces<std::auto_ptr<int>>("pNoff");
 }
 
 offlineNTracks::~offlineNTracks()
