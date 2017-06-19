@@ -65,7 +65,7 @@ offlineNTracks::offlineNTracks( const edm::ParameterSet& iConfig)
    //now do what ever initialization is needed
    consumes<reco::TrackCollection>(trackSource);
    consumes<reco::VertexCollection>(vertexSource);
-   produces<int>("pNoff");
+   produces<int>();
 }
 
 offlineNTracks::~offlineNTracks()
@@ -121,7 +121,7 @@ offlineNTracks::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
   			}
   } 
   std::auto_ptr<int> pNoff(new int(NTracks));
-  iEvent.put(pNoff);
+  iEvent.put(pNoff, std::string("pNoff"));
 }
 
 DEFINE_FWK_MODULE(offlineNTracks);
