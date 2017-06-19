@@ -64,7 +64,7 @@ process.ppNoffFilter240 = process.centralityFilter.clone(
 		selectedBins = cms.vint32(
 			*range(240, 260)
 			),
-		BinLabel = cms.InputTag("Noff")
+		BinLabel = cms.InputTag("pNoff")
 		)
 
 process.p = cms.Path(process.eventSelection * process.offlineNTracks * process.ppNoffFilter240 * process.eventMaker * process.demo)	
