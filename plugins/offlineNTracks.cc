@@ -19,6 +19,9 @@
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
+#include "DataFormats/VertexReco/interface/Vertex.h"
+#include "DataFormats/VertexReco/interface/VertexFwd.h"
+
 #include "FWCore/Utilities/interface/InputTag.h"
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
@@ -41,6 +44,7 @@ class offlineNTracks : public edm::one::EDProducer<edm::one::SharedResources>  {
       virtual void produce(edm::Event&, const edm::EventSetup&) override;
 
       edm::InputTag trackSource;
+      edm::InputTag vertexSource;
 };
 
 //
@@ -55,11 +59,13 @@ class offlineNTracks : public edm::one::EDProducer<edm::one::SharedResources>  {
 // constructors and destructor
 //
 offlineNTracks::offlineNTracks( const edm::ParameterSet& iConfig)
-: trackSource(iConfig.getUntrackedParameter<edm::InputTag>("trackSource_"))
+: trackSource(iConfig.getUntrackedParameter<edm::InputTag>("trackSource_")),
+  vertexSource(iConfig.getUntrackedParameter<edm::InputTag>("vertexSource_"))
 {
    //now do what ever initialization is needed
    consumes<reco::TrackCollection>(trackSource);
-
+   consumes<reco::VertexCollection>(vertexSource);
+   produces<int>();
 }
 
 offlineNTracks::~offlineNTracks()
@@ -82,6 +88,19 @@ offlineNTracks::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
   Handle<TrackCollection> tracks;
   iEvent.getByLabel(trackSource, tracks);
+
+  Handle<VertexCollection> vertices;
+  iEvent.getByLabel(vertexSource, vertices);
+  VertexCollection recoVertices = *vertices;
+
+  sort(recoVertices.begin(), recoVertices.end(), [](const reco::Vertex &a, const reco::Vertex &b){
+			return a.tracksSize() > b.tracksSize();
+			});
+  int primaryvtx = 0;
+  math::XYZPoint v1( recoVertices[primaryvtx].position().x(), recoVertices[primaryvtx].position().y(), recoVertices[primaryvtx].position().z() );
+  double vxError = recoVertices[primaryvtx].xError();
+  double vyError = recoVertices[primaryvtx].yError();
+  double vzError = recoVertices[primaryvtx].zError();
   
   int NTracks = 0;
 
@@ -97,7 +116,7 @@ offlineNTracks::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 				double dzerror=sqrt(itTrack->dzError()*itTrack->dzError()+vzError*vzError);
 				if(TMath::Abs(dz/dzerror) > 3 && TMath::Abs(d0/dzerror) > 3 )
 				{
-	  				NTracks++;	
+	  				NTracks++;
 				}
   			}
   } 

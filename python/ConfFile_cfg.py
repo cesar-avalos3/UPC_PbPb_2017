@@ -46,10 +46,11 @@ process.demo = cms.EDAnalyzer('ridge', etaSource_ = cms.untracked.InputTag("even
 
 #Load the offlineNTrack maker
 process.offlineNTracks = cms.EDProducer("offlineNTracks", 
-										trackSource_ = cms.untracked.InputTag("generalTracks"))
+										trackSource_ = cms.untracked.InputTag("generalTracks"),
+										vertexSource_ = cms.untracked.InputTag("vertex") )
 
 process.TFileService = cms.Service("TFileService",
-        fileNamoe = cms.string("minBiasTrigger.root"))
+        fileName = cms.string("minBiasTrigger.root"))
 
 process.source = cms.Source("PoolSource",
     # replace 'myfile.root' with the source file you want to use
