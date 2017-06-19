@@ -37,7 +37,7 @@ process.eventSelection = cms.Sequence(process.hfCoincFilter * process.PAprimaryV
 
 #Load the array maker
 process.eventMaker = cms.EDProducer("eventMaker", trackSource_ = cms.untracked.InputTag("generalTracks"),
-						  			 vertexSource_ = cms.untracked.InputTag("vertex"))
+						  			 vertexSource_ = cms.untracked.InputTag("offlinePrimaryVertices"))
 
 #Load the histogram maker
 process.demo = cms.EDAnalyzer('ridge', etaSource_ = cms.untracked.InputTag("eventMaker", "eta"),
@@ -47,7 +47,7 @@ process.demo = cms.EDAnalyzer('ridge', etaSource_ = cms.untracked.InputTag("even
 #Load the offlineNTrack maker
 process.offlineNTracks = cms.EDProducer("offlineNTracks", 
 										trackSource_ = cms.untracked.InputTag("generalTracks"),
-										vertexSource_ = cms.untracked.InputTag("vertex") )
+										vertexSource_ = cms.untracked.InputTag("offlinePrimaryVertices") )
 
 process.TFileService = cms.Service("TFileService",
         fileName = cms.string("minBiasTrigger.root"))
