@@ -42,6 +42,7 @@ class eventMaker : public edm::one::EDProducer<edm::one::SharedResources>  {
 
       edm::InputTag trackSource;
       edm::InputTag vertexSource;
+      edm::InputTag nTtracksSource;
 };
 
 //
@@ -57,11 +58,13 @@ class eventMaker : public edm::one::EDProducer<edm::one::SharedResources>  {
 //
 eventMaker::eventMaker( const edm::ParameterSet& iConfig)
 : trackSource(iConfig.getUntrackedParameter<edm::InputTag>("trackSource_")),
-  vertexSource(iConfig.getUntrackedParameter<edm::InputTag>("vertexSource_"))
+  vertexSource(iConfig.getUntrackedParameter<edm::InputTag>("vertexSource_")),
+  nTracksSource(iConfig.getUntrackedParameter<edm::InputTag>("nTracksSource_"))
 {
    //now do what ever initialization is needed
    consumes<reco::TrackCollection>(trackSource);
    consumes<reco::TrackCollection>(vertexSource);
+   consumes<int>(nTracksSource);
 
    produces<std::vector<double> >("phi");
    produces<std::vector<double> >("eta");
@@ -92,6 +95,10 @@ eventMaker::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
   std::auto_ptr<std::vector<double> > etaVector( new std::vector<double> );
   std::auto_ptr<std::vector<double> >  ptVector( new std::vector<double> );
 
+  Handle<int> nT;
+  iEvent.getByLabel(nTracksSource, nT);
+  int nTracks = *(nT.product());
+  
   Handle<TrackCollection> tracks;
   iEvent.getByLabel(trackSource, tracks);
   
@@ -99,8 +106,7 @@ eventMaker::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
   for(TrackCollection::const_iterator itTrack = tracks->begin(); itTrack != tracks->end(); ++itTrack)
   {
   			if( itTrack->quality(TrackBase::highPurity) 
-  			 && tracks->size() > 219 && tracks->size() < 260
-  			 && itTrack->pt() < 3.0  && TMath::Abs(itTrack->eta()) < 2.4)
+         && itTrack->pt() < 3.0  && TMath::Abs(itTrack->eta()) < 2.4)
   			{
   				phiVector->push_back(itTrack->phi());
   				etaVector->push_back(itTrack->eta());

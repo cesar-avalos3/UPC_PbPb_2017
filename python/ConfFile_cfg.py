@@ -37,7 +37,8 @@ process.eventSelection = cms.Sequence(process.hfCoincFilter * process.PAprimaryV
 
 #Load the array maker
 process.eventMaker = cms.EDProducer("eventMaker", trackSource_ = cms.untracked.InputTag("generalTracks"),
-						  			 vertexSource_ = cms.untracked.InputTag("offlinePrimaryVertices"))
+						  			 vertexSource_ = cms.untracked.InputTag("offlinePrimaryVertices"),
+						  			 nTracksSource_ = cms.untracked.InputTag("offlineNTracks"))
 
 #Load the histogram maker
 process.demo = cms.EDAnalyzer('ridge', etaSource_ = cms.untracked.InputTag("eventMaker", "eta"),
