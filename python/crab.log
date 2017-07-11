@@ -1,0 +1,136 @@
+DEBUG 2017-07-06 16:34:38,241: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:34:38,241: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:34:38,247: 	 Checking credentials
+DEBUG 2017-07-06 16:34:38,247: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:34:38,248: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:34:38,751: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 69734
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:39,261: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 69733
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:39,261: 	 Proxy valid for 19:22:14 hours
+DEBUG 2017-07-06 16:34:39,262: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-07-06 16:34:37,062: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:34:37,062: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:34:37,069: 	 Checking credentials
+DEBUG 2017-07-06 16:34:37,070: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:34:37,070: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:34:37,675: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 69735
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:38,187: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 69734
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:38,188: 	 Proxy valid for 19:22:15 hours
+INFO 2017-07-06 16:34:38,188: 	 Will use CRAB configuration file crab_pPb_HM.py
+DEBUG 2017-07-06 16:34:38,188: 	 Loading CRAB configuration file.
+DEBUG 2017-07-06 16:34:38,241: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:34:38,241: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:34:38,247: 	 Checking credentials
+DEBUG 2017-07-06 16:34:38,247: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:34:38,248: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:34:38,751: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 69734
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:39,261: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 69733
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:39,261: 	 Proxy valid for 19:22:14 hours
+DEBUG 2017-07-06 16:34:39,262: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-07-06 16:34:52,238: 	 Executing command: 'status'
+DEBUG 2017-07-06 16:34:52,239: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:34:52,244: 	 Checking credentials
+DEBUG 2017-07-06 16:34:52,244: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:34:52,244: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:34:52,849: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 69720
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:53,555: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 69719
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:34:53,555: 	 Proxy valid for 19:22:00 hours
+ERROR 2017-07-06 16:34:53,558: 	 Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs
+ERROR 2017-07-06 16:34:53,558: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/status.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 321, in __init__
+    self.loadLocalCache(proxyOptsSetPlace)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 450, in loadLocalCache
+    raise ex
+CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs
+DEBUG 2017-07-07 12:34:15,739: 	 Executing command: 'kill'
+DEBUG 2017-07-07 12:34:15,739: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+ERROR 2017-07-07 12:34:15,739: 	 Error: Please indicate the CRAB project directory with --dir=<project-directory>.
+ERROR 2017-07-07 12:34:15,740: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 257, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/kill.py", line 62, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 562, in validateOptions
+    raise ex
+MissingOptionException: [91mError[0m: Please indicate the CRAB project directory with --dir=<project-directory>.
+DEBUG 2017-07-07 12:34:23,030: 	 Executing command: 'kill'
+DEBUG 2017-07-07 12:34:23,030: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-07 12:34:23,038: 	 Checking credentials
+DEBUG 2017-07-07 12:34:23,039: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-07 12:34:23,039: 	 Getting proxy life time left
+DEBUG 2017-07-07 12:34:24,045: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 42197
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-07 12:34:24,761: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 42196
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-07 12:34:24,762: 	 Proxy valid for 11:43:17 hours
+ERROR 2017-07-07 12:34:24,763: 	 Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python
+ERROR 2017-07-07 12:34:24,763: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 321, in __init__
+    self.loadLocalCache(proxyOptsSetPlace)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1706/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 450, in loadLocalCache
+    raise ex
+CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python

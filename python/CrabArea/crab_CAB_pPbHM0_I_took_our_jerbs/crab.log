@@ -1,0 +1,318 @@
+DEBUG 2017-07-06 16:30:02,831: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:30:02,831: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:30:02,840: 	 Checking credentials
+DEBUG 2017-07-06 16:30:02,841: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:30:02,841: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:30:03,657: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 70009
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,273: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 70008
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,273: 	 Proxy valid for 19:26:49 hours
+DEBUG 2017-07-06 16:30:04,274: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-07-06 16:30:04,424: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,425: 	 Checking credentials
+DEBUG 2017-07-06 16:30:04,425: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:30:04,425: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:30:05,035: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 70008
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:05,641: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 70007
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:05,641: 	 Proxy valid for 19:26:48 hours
+DEBUG 2017-07-06 16:30:06,455: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u82359 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:06,821: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-06 16:30:06,934: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:06,935: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-06 16:30:06,935: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:07,441: 	 Executing : 
+ command : myproxy-info -l 9bfeb051bd5424569507f5263416ad276b9813c2 -s myproxy.cern.ch
+ output : 
+ error: ERROR from myproxy-server:
+no credentials found for user 9bfeb051bd5424569507f5263416ad276b9813c2, owner "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh" 
+
+ retcode : 1
+DEBUG 2017-07-06 16:30:07,442: 	 Myproxy is valid: -1
+DEBUG 2017-07-06 16:30:07,546: 	 Executing : 
+ command : openssl x509 -noout -in ~/.globus/usercert.pem -dates
+ output : notBefore=Jun 12 08:05:05 2017 GMT
+notAfter=Jul 17 08:05:05 2018 GMT
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:07,557: 	 Delegating a myproxy for 720:00 hours
+DEBUG 2017-07-06 16:30:07,558: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:11,586: 	 Executing : 
+ command : export GT_PROXY_MODE=rfc ; myproxy-init -d -n -s myproxy.cern.ch -x -R '/DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch' -x -Z '/DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch' -l '9bfeb051bd5424569507f5263416ad276b9813c2' -t 168:00 -c 720:00
+ output : Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+Creating proxy ....................................................................... Done
+Proxy Verify OK
+Your proxy is valid until: Sat Aug  5 16:30:11 2017
+A proxy valid for 720 hours (30.0 days) for user 9bfeb051bd5424569507f5263416ad276b9813c2 now exists on myproxy.cern.ch.
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:11,587: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:12,098: 	 Executing : 
+ command : myproxy-info -l 9bfeb051bd5424569507f5263416ad276b9813c2 -s myproxy.cern.ch
+ output : username: 9bfeb051bd5424569507f5263416ad276b9813c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 719:59:59  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:12,100: 	 My-proxy delegated.
+DEBUG 2017-07-06 16:30:12,100: 	 Command use: submit
+DEBUG 2017-07-06 16:30:12,100: 	 Options use: ['--config', <WMCore.Configuration.Configuration object at 0x7febd62b2490>]
+DEBUG 2017-07-06 16:30:12,494: 	 CRABClient version: 3.3.1706
+DEBUG 2017-07-06 16:30:12,494: 	 Instance is prod
+DEBUG 2017-07-06 16:30:12,494: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-06 16:30:12,494: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-06 16:30:12,494: 	 Started submission
+DEBUG 2017-07-06 16:30:12,495: 	 Working on /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs
+DEBUG 2017-07-06 16:30:12,949: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:12,949: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:12,949: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:12,949: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:12,963: 	 UNIQUE NAME: tarUUID 1a75dc3f-a8f3-44dd-b94d-323cd7866795 
+DEBUG 2017-07-06 16:30:12,964: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = True
+config.General.transferOutputs = True
+config.General.workArea = 'CrabArea'
+config.General.requestName = 'CAB_pPbHM0_I_took_our_jerbs'
+config.section_('JobType')
+config.JobType.psetName = 'test.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.inputFiles = ['Hijing_8TeV_dataBS.root']
+config.section_('Data')
+config.Data.inputDataset = '/PAHighMultiplicity0/PARun2016C-PromptReco-v1/AOD'
+config.Data.allowNonValidInputDataset = True
+config.Data.publication = False
+config.Data.unitsPerJob = 20
+config.Data.splitting = 'LumiBased'
+config.Data.lumiMask = '/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions16/13TeV/HI/Cert_285479-285832_HI8TeV_PromptReco_pPb_Collisions16_JSON_NoL1T.txt'
+config.Data.useParent = False
+config.Data.outLFNDirBase = '/store/group/phys_diffraction/cav/'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_CH_CERN'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2017-07-06 16:30:12,964: 	 self.config.JobType.psetName: test.py
+INFO 2017-07-06 16:30:12,964: 	 Importing CMSSW configuration test.py
+INFO 2017-07-06 16:30:14,543: 	 Finished importing CMSSW configuration test.py
+DEBUG 2017-07-06 16:30:14,543: 	 Writing CMSSW configuration to /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs/inputs/PSet.py
+DEBUG 2017-07-06 16:30:14,598: 	 The following EDM output files will be collected: []
+DEBUG 2017-07-06 16:30:14,598: 	 The following TFile output files will be collected: ['outW280.root']
+DEBUG 2017-07-06 16:30:14,598: 	 The following user output files will be collected: []
+DEBUG 2017-07-06 16:30:14,598: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:14,598: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:14,598: 	 Making tarball in /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs/inputs/1a75dc3f-a8f3-44dd-b94d-323cd7866795default.tgz
+DEBUG 2017-07-06 16:30:14,717: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/lib
+DEBUG 2017-07-06 16:30:14,717: 	 Adding directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/lib to tarball
+DEBUG 2017-07-06 16:30:14,726: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/biglib
+DEBUG 2017-07-06 16:30:14,726: 	 Adding directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/biglib to tarball
+DEBUG 2017-07-06 16:30:14,728: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/module
+DEBUG 2017-07-06 16:30:00,006: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:30:00,007: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:30:00,015: 	 Checking credentials
+DEBUG 2017-07-06 16:30:00,015: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:30:00,015: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:30:01,744: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 70012
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:02,573: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 70010
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:02,574: 	 Proxy valid for 19:26:52 hours
+INFO 2017-07-06 16:30:02,574: 	 Will use CRAB configuration file crab_pPb_HM.py
+DEBUG 2017-07-06 16:30:02,574: 	 Loading CRAB configuration file.
+DEBUG 2017-07-06 16:30:02,831: 	 Executing command: 'submit'
+DEBUG 2017-07-06 16:30:02,831: 	 Found CRAB cache file /afs/cern.ch/user/c/cavalosb/.crab3
+DEBUG 2017-07-06 16:30:02,840: 	 Checking credentials
+DEBUG 2017-07-06 16:30:02,841: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:30:02,841: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:30:03,657: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 70009
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,273: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 70008
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,273: 	 Proxy valid for 19:26:49 hours
+DEBUG 2017-07-06 16:30:04,274: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-07-06 16:30:04,424: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:04,425: 	 Checking credentials
+DEBUG 2017-07-06 16:30:04,425: 	 Found proxy file /tmp/x509up_u82359
+DEBUG 2017-07-06 16:30:04,425: 	 Getting proxy life time left
+DEBUG 2017-07-06 16:30:05,035: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -timeleft
+ output : 70008
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:05,641: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u82359 -actimeleft
+ output : 70007
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:05,641: 	 Proxy valid for 19:26:48 hours
+DEBUG 2017-07-06 16:30:06,455: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u82359 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:06,821: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-06 16:30:06,934: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:06,935: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-06 16:30:06,935: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:07,441: 	 Executing : 
+ command : myproxy-info -l 9bfeb051bd5424569507f5263416ad276b9813c2 -s myproxy.cern.ch
+ output : 
+ error: ERROR from myproxy-server:
+no credentials found for user 9bfeb051bd5424569507f5263416ad276b9813c2, owner "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh" 
+
+ retcode : 1
+DEBUG 2017-07-06 16:30:07,442: 	 Myproxy is valid: -1
+DEBUG 2017-07-06 16:30:07,546: 	 Executing : 
+ command : openssl x509 -noout -in ~/.globus/usercert.pem -dates
+ output : notBefore=Jun 12 08:05:05 2017 GMT
+notAfter=Jul 17 08:05:05 2018 GMT
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:07,557: 	 Delegating a myproxy for 720:00 hours
+DEBUG 2017-07-06 16:30:07,558: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:11,586: 	 Executing : 
+ command : export GT_PROXY_MODE=rfc ; myproxy-init -d -n -s myproxy.cern.ch -x -R '/DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch' -x -Z '/DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch' -l '9bfeb051bd5424569507f5263416ad276b9813c2' -t 168:00 -c 720:00
+ output : Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+Creating proxy ....................................................................... Done
+Proxy Verify OK
+Your proxy is valid until: Sat Aug  5 16:30:11 2017
+A proxy valid for 720 hours (30.0 days) for user 9bfeb051bd5424569507f5263416ad276b9813c2 now exists on myproxy.cern.ch.
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:11,587: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh_cmsweb.cern.ch for credential name
+DEBUG 2017-07-06 16:30:12,098: 	 Executing : 
+ command : myproxy-info -l 9bfeb051bd5424569507f5263416ad276b9813c2 -s myproxy.cern.ch
+ output : username: 9bfeb051bd5424569507f5263416ad276b9813c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cavalosb/CN=777339/CN=Cesar Avalos Baddouh
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 719:59:59  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-06 16:30:12,100: 	 My-proxy delegated.
+DEBUG 2017-07-06 16:30:12,100: 	 Command use: submit
+DEBUG 2017-07-06 16:30:12,100: 	 Options use: ['--config', <WMCore.Configuration.Configuration object at 0x7febd62b2490>]
+DEBUG 2017-07-06 16:30:12,494: 	 CRABClient version: 3.3.1706
+DEBUG 2017-07-06 16:30:12,494: 	 Instance is prod
+DEBUG 2017-07-06 16:30:12,494: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-06 16:30:12,494: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-06 16:30:12,494: 	 Started submission
+DEBUG 2017-07-06 16:30:12,495: 	 Working on /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs
+DEBUG 2017-07-06 16:30:12,949: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:12,949: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:12,949: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:12,949: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:12,963: 	 UNIQUE NAME: tarUUID 1a75dc3f-a8f3-44dd-b94d-323cd7866795 
+DEBUG 2017-07-06 16:30:12,964: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = True
+config.General.transferOutputs = True
+config.General.workArea = 'CrabArea'
+config.General.requestName = 'CAB_pPbHM0_I_took_our_jerbs'
+config.section_('JobType')
+config.JobType.psetName = 'test.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.inputFiles = ['Hijing_8TeV_dataBS.root']
+config.section_('Data')
+config.Data.inputDataset = '/PAHighMultiplicity0/PARun2016C-PromptReco-v1/AOD'
+config.Data.allowNonValidInputDataset = True
+config.Data.publication = False
+config.Data.unitsPerJob = 20
+config.Data.splitting = 'LumiBased'
+config.Data.lumiMask = '/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions16/13TeV/HI/Cert_285479-285832_HI8TeV_PromptReco_pPb_Collisions16_JSON_NoL1T.txt'
+config.Data.useParent = False
+config.Data.outLFNDirBase = '/store/group/phys_diffraction/cav/'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_CH_CERN'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2017-07-06 16:30:12,964: 	 self.config.JobType.psetName: test.py
+INFO 2017-07-06 16:30:12,964: 	 Importing CMSSW configuration test.py
+INFO 2017-07-06 16:30:14,543: 	 Finished importing CMSSW configuration test.py
+DEBUG 2017-07-06 16:30:14,543: 	 Writing CMSSW configuration to /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs/inputs/PSet.py
+DEBUG 2017-07-06 16:30:14,598: 	 The following EDM output files will be collected: []
+DEBUG 2017-07-06 16:30:14,598: 	 The following TFile output files will be collected: ['outW280.root']
+DEBUG 2017-07-06 16:30:14,598: 	 The following user output files will be collected: []
+DEBUG 2017-07-06 16:30:14,598: 	 Loading required information from the environment
+DEBUG 2017-07-06 16:30:14,598: 	 Found CMSSW_8_0_28 for slc6_amd64_gcc530 with base /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28
+DEBUG 2017-07-06 16:30:14,598: 	 Making tarball in /afs/cern.ch/work/c/cavalosb/rA/CMSSW_8_0_22/src/QW/UPCridgeAnalysis/python/CrabArea/crab_CAB_pPbHM0_I_took_our_jerbs/inputs/1a75dc3f-a8f3-44dd-b94d-323cd7866795default.tgz
+DEBUG 2017-07-06 16:30:14,717: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/lib
+DEBUG 2017-07-06 16:30:14,717: 	 Adding directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/lib to tarball
+DEBUG 2017-07-06 16:30:14,726: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/biglib
+DEBUG 2017-07-06 16:30:14,726: 	 Adding directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/biglib to tarball
+DEBUG 2017-07-06 16:30:14,728: 	 Checking directory /afs/cern.ch/user/c/cavalosb/private/crab-demo/CMSSW_8_0_28/module

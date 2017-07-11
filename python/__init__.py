@@ -1,3 +1,3 @@
 #Automatically created by SCRAM
 import os
-__path__.append(os.path.dirname(os.path.abspath(__file__).rsplit('/ridge/ridge/',1)[0])+'/cfipython/slc6_amd64_gcc530/ridge/ridge')
+__path__.append(os.path.dirname(os.path.abspath(__file__).rsplit('/QW/UPCridgeAnalysis/',1)[0])+'/cfipython/slc6_amd64_gcc530/QW/UPCridgeAnalysis')
