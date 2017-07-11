@@ -144,7 +144,7 @@ CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
 		int tempVectorSize = temporaryVector.size();
 		for(int j = 0; j < tempVectorSize; ++j){
       if(TMath::Abs( (*vz)[i] - (*(temporaryVector[j].vz))[0] ) <= 0.5){
-      for(int u = 0; u < (*(temporaryVector[j].phi)).size(); ++u){
+      for(unsigned int u = 0; u < (*(temporaryVector[j].phi)).size(); ++u){
         double Dphi = (*phi)[i] - (*(temporaryVector[j].phi))[u];
         double Deta = (*eta)[i] - (*(temporaryVector[j].eta))[u];
         while (Dphi > DphiMax) Dphi -= TMath::Pi()*2.;
@@ -160,8 +160,8 @@ CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
 	}
 	tempDPhi_signal->Sumw2();
 //  tempDPhi_background->Sumw2();
-  tempDPhi_signal->Multiply(1/NTrigger);
-//  tempDPhi_background->Multiply(1/NTrigger);
+  tempDPhi_signal->Scale(1.0/NTrigger);
+//  tempDPhi_background->MultiTly(1/NTrigger);
   mphi_ = *phi;
 	meta_ = *eta;
 	mz_   = *vz;
