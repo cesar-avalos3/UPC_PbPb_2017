@@ -32,10 +32,10 @@ forwardListNode::forwardListNode(vector<double> *p, vector<double> *e, vector<do
 	we  = w;
 }
 
-class CAQW2DAnalyzer : public edm::EDAnalyzer {
+class CAQW2DAnalyzerBeta : public edm::EDAnalyzer {
 public:
-	explicit CAQW2DAnalyzer(const edm::ParameterSet&);
-	~CAQW2DAnalyzer() {};
+	explicit CAQW2DAnalyzerBeta(const edm::ParameterSet&);
+	~CAQW2DAnalyzerBeta() {};
 private:
 	virtual void beginJob() {};
 	virtual void analyze(const edm::Event&, const edm::EventSetup&);
@@ -66,7 +66,7 @@ private:
 };
 
 
-CAQW2DAnalyzer::CAQW2DAnalyzer(const edm::ParameterSet& pset)
+CAQW2DAnalyzerBeta::CAQW2DAnalyzerBeta(const edm::ParameterSet& pset)
 {
 
 	srcVz_ = pset.getUntrackedParameter<edm::InputTag>("srcVz");
@@ -97,7 +97,7 @@ CAQW2DAnalyzer::CAQW2DAnalyzer(const edm::ParameterSet& pset)
 }
 
 void
-CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
 	using namespace edm;
 	Handle<std::vector<double> > phi;
@@ -105,9 +105,17 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	Handle<std::vector<double> > w;
 	Handle<std::vector<double> > vz;
 
+
+  eventNumber++;
+  int NTrigger = 0;
+
+  TH2D *tempDPhi_signal = new TH2D("hc"+eventNumber, "hc"+eventNumber, 28, DphiMin, DphiMax, 28, -4.0, 4.0);
+  TH2D *tempDPhi_background = new TH2D("hm"+eventNumber, "hm"+eventNumber, 28, DphiMin, DphiMax, 28, -4.0, 4.0);
+
 	iEvent.getByLabel(srcPhi_, phi);
  	iEvent.getByLabel(srcEta_, eta);
 	iEvent.getByLabel(srcVz_,   vz);
+
 
 	if ( bWeight ) {
 		iEvent.getByLabel(srcW_, w);
@@ -116,9 +124,9 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 //	unsigned int numberOfBackgroundUsed = 0;
 
 	int sz = phi->size();
-	eventNumber++;
 	h->Fill(sz);
 	for ( int i = 0; i < sz; i++ ) {
+    NTrigger++;
 		for ( int j = 0; j < sz; j++ ) {
 			if ( i == j ) continue;
 			double Dphi = (*phi)[i] - (*phi)[j];
@@ -127,9 +135,9 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 			while (Dphi < DphiMin) Dphi += TMath::Pi()*2.;
 
 			if ( bWeight ) {
-				hc->Fill(Dphi, Deta, (*w)[i] * (*w)[j]);
+				tempDPhi_signal->Fill(Dphi, Deta, (*w)[i] * (*w)[j]);
 			} else {
-				hc->Fill(Dphi, Deta);
+				tempDPhi_signal->Fill(Dphi, Deta);
 			}
 		}
 		// DO MIX
@@ -142,16 +150,18 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
         while (Dphi > DphiMax) Dphi -= TMath::Pi()*2.;
         while (Dphi < DphiMin) Dphi += TMath::Pi()*2.;
 			  if ( bWeight ) {
-		      hm->Fill(Dphi, Deta, (*w)[i] * (mw_)[j]);
+		      tempDPhi_background->Fill(Dphi, Deta, (*w)[i] * (mw_)[j]);
         } else {
-		      hm->Fill(Dphi, Deta); 
+		      tempDPhi_background->Fill(Dphi, Deta); 
         }
       }
-		    //histogramNumberBackgroundUsed->Fill(u); 
       }
 		}
 	}
-	
+	tempDPhi_signal->Sumw2();
+  tempDPhi_background->Sumw2();
+  tempDPhi_signal->Multiply(1/NTrigger);
+  tempDPhi_background->Multiply(1/NTrigger);
   mphi_ = *phi;
 	meta_ = *eta;
 	mz_   = *vz;
@@ -165,7 +175,13 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   mw_ = *w;
   forwardListNode tempNode(&mphi_, &meta_, &mz_, &mw_);
   temporaryVector.insert(temporaryVector.begin(),tempNode);
+  hc->Add(tempDPhi_signal);
+  hm->Add(tempDPhi_background);
+  
+  delete tempDPhi_background;
+  delete tempDPhi_signal;
+
 	return;
 }
 
-DEFINE_FWK_MODULE(CAQW2DAnalyzer);
+DEFINE_FWK_MODULE(CAQW2DAnalyzerBeta);

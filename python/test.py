@@ -155,9 +155,9 @@ process.corr2D120 = cms.EDAnalyzer('CAQW2DAnalyzer',
 		srcPhi = cms.untracked.InputTag("QWEvent", "phi"),
 		srcVz  = cms.untracked.InputTag("QWEvent",  "vz"),
 		srcEta = cms.untracked.InputTag("QWEvent", "eta"),
-                hNbins = cms.untracked.int32(5000),
-                hstart = cms.untracked.double(0),
-                hend = cms.untracked.double(5000),
+    hNbins = cms.untracked.int32(5000),
+    hstart = cms.untracked.double(0),
+    hend = cms.untracked.double(5000),
 		)
 
 process.corr2D150 = process.corr2D120.clone()
