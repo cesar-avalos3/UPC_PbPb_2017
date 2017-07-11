@@ -14,7 +14,7 @@
 using namespace std;
 
 // This class is going to be the node class
-class forwardListNode
+/*class forwardListNode
 {
 	public:
 	forwardListNode(vector<double>*, vector<double>*, vector<double>*, vector<double>*);
@@ -169,3 +169,4 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 }
 
 DEFINE_FWK_MODULE(CAQW2DAnalyzer);
+*/
