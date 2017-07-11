@@ -110,7 +110,7 @@ CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   int NTrigger = 0;
 
   TH2D *tempDPhi_signal = new TH2D("hc"+eventNumber, "hc"+eventNumber, 28, DphiMin, DphiMax, 28, -4.0, 4.0);
-  TH2D *tempDPhi_background = new TH2D("hm"+eventNumber, "hm"+eventNumber, 28, DphiMin, DphiMax, 28, -4.0, 4.0);
+//  TH2D *tempDPhi_background = new TH2D("hm"+eventNumber, "hm"+eventNumber, 28, DphiMin, DphiMax, 28, -4.0, 4.0);
 
 	iEvent.getByLabel(srcPhi_, phi);
  	iEvent.getByLabel(srcEta_, eta);
@@ -150,18 +150,18 @@ CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
         while (Dphi > DphiMax) Dphi -= TMath::Pi()*2.;
         while (Dphi < DphiMin) Dphi += TMath::Pi()*2.;
 			  if ( bWeight ) {
-		      tempDPhi_background->Fill(Dphi, Deta, (*w)[i] * (mw_)[j]);
+		      hm->Fill(Dphi, Deta, (*w)[i] * (mw_)[j]);
         } else {
-		      tempDPhi_background->Fill(Dphi, Deta); 
+		      hm->Fill(Dphi, Deta); 
         }
       }
       }
 		}
 	}
 	tempDPhi_signal->Sumw2();
-  tempDPhi_background->Sumw2();
+//  tempDPhi_background->Sumw2();
   tempDPhi_signal->Multiply(1/NTrigger);
-  tempDPhi_background->Multiply(1/NTrigger);
+//  tempDPhi_background->Multiply(1/NTrigger);
   mphi_ = *phi;
 	meta_ = *eta;
 	mz_   = *vz;
@@ -176,9 +176,9 @@ CAQW2DAnalyzerBeta::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   forwardListNode tempNode(&mphi_, &meta_, &mz_, &mw_);
   temporaryVector.insert(temporaryVector.begin(),tempNode);
   hc->Add(tempDPhi_signal);
-  hm->Add(tempDPhi_background);
+//  hm->Add(tempDPhi_background);
   
-  delete tempDPhi_background;
+//  delete tempDPhi_background;
   delete tempDPhi_signal;
 
 	return;
