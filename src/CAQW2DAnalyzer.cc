@@ -136,7 +136,7 @@ CAQW2DAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 		int tempVectorSize = temporaryVector.size();
 		for(int j = 0; j < tempVectorSize; ++j){
       if(TMath::Abs( (*vz)[i] - (*(temporaryVector[j].vz))[0] ) <= 0.5){
-      for(int u = 0; u < (*(temporaryVector[j].phi)).size(); ++u){
+      for(unsigned int u = 0; u < (*(temporaryVector[j].phi)).size(); ++u){
         double Dphi = (*phi)[i] - (*(temporaryVector[j].phi))[u];
         double Deta = (*eta)[i] - (*(temporaryVector[j].eta))[u];
         while (Dphi > DphiMax) Dphi -= TMath::Pi()*2.;
